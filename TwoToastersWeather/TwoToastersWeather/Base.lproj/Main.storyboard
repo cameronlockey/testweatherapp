@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lxb-xF-Bms">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="TTz-ml-YtM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lxb-xF-Bms" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ip3-B0-hgv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Ju-hX-YQi" kind="relationship" relationship="rootViewController" id="F5G-Pe-VPX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khI-rB-f3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="95"/>
+        </scene>
+        <!--Current Weather - Weather App-->
+        <scene sceneID="KFW-XN-m0Z">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9Ju-hX-YQi" customClass="CurrentWeather" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZXv-z1-C8a"/>
+                        <viewControllerLayoutGuide type="bottom" id="J6y-ic-peA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6tu-QQ-lgi">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72˚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jn-aQ-BJC">
+                                <rect key="frame" x="0.0" y="46" width="320" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="hlW-VO-e70"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="100"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durham, NC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcX-y0-Zwa">
+                                <rect key="frame" x="0.0" y="138" width="320" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0tv-IV-k7H">
+                                <rect key="frame" x="0.0" y="203" width="320" height="301"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ForecastCell" rowHeight="75" id="zoH-SH-5Os">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zoH-SH-5Os" id="NNL-jx-NoB">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEG-V6-bPr">
+                                                    <rect key="frame" x="21" y="21" width="34" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="Bup-en-rnF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgs-Zu-jPy">
+                                                    <rect key="frame" x="75" y="21" width="124" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="h4K-bI-69b"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Bgs-Zu-jPy" firstAttribute="leading" secondItem="UEG-V6-bPr" secondAttribute="trailing" constant="20" id="5ob-rB-o8c"/>
+                                                <constraint firstItem="Bgs-Zu-jPy" firstAttribute="top" secondItem="UEG-V6-bPr" secondAttribute="top" id="8xu-Vb-mU4"/>
+                                                <constraint firstItem="UEG-V6-bPr" firstAttribute="leading" secondItem="NNL-jx-NoB" secondAttribute="leading" constant="21" id="TYv-ad-WDH"/>
+                                                <constraint firstItem="UEG-V6-bPr" firstAttribute="top" secondItem="NNL-jx-NoB" secondAttribute="top" constant="21" id="xDZ-SS-rWM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Ju-hX-YQi" id="k50-0V-iqh"/>
+                                    <outlet property="delegate" destination="9Ju-hX-YQi" id="bz4-vB-2pt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OcX-y0-Zwa" secondAttribute="trailing" id="9fD-GR-DI0"/>
+                            <constraint firstItem="0tv-IV-k7H" firstAttribute="leading" secondItem="6tu-QQ-lgi" secondAttribute="leading" id="STB-jC-3jL"/>
+                            <constraint firstItem="3Jn-aQ-BJC" firstAttribute="top" secondItem="ZXv-z1-C8a" secondAttribute="bottom" constant="46" id="TU8-UM-W08"/>
+                            <constraint firstItem="3Jn-aQ-BJC" firstAttribute="leading" secondItem="6tu-QQ-lgi" secondAttribute="leading" id="Ugf-w2-nbO"/>
+                            <constraint firstAttribute="trailing" secondItem="0tv-IV-k7H" secondAttribute="trailing" id="elv-fi-Yvh"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jn-aQ-BJC" secondAttribute="trailing" id="g7r-P0-TPj"/>
+                            <constraint firstItem="0tv-IV-k7H" firstAttribute="top" secondItem="OcX-y0-Zwa" secondAttribute="bottom" constant="41" id="hqu-U6-ZB1"/>
+                            <constraint firstItem="OcX-y0-Zwa" firstAttribute="leading" secondItem="6tu-QQ-lgi" secondAttribute="leading" id="uEt-6g-DDW"/>
+                            <constraint firstItem="OcX-y0-Zwa" firstAttribute="top" secondItem="3Jn-aQ-BJC" secondAttribute="bottom" constant="-2" id="y8B-gv-GD9"/>
+                            <constraint firstItem="J6y-ic-peA" firstAttribute="top" secondItem="0tv-IV-k7H" secondAttribute="bottom" id="yQK-d6-ana"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Weather App" id="FWw-vQ-5RB"/>
+                    <connections>
+                        <outlet property="currentTempLabel" destination="3Jn-aQ-BJC" id="gKJ-Kf-06f"/>
+                        <outlet property="forecastTableView" destination="0tv-IV-k7H" id="McP-Ed-BNZ"/>
+                        <outlet property="locationLabel" destination="OcX-y0-Zwa" id="uE2-JC-ISC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6t-tg-T0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="95"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
