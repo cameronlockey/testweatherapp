@@ -103,12 +103,10 @@
 	dayLabel.textColor = grayDarkest;
 	dayLabel.text = forecastDay.weekday;
 	
-	if (indexPath.row > 0) {
-		UIView *borderTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 1)];
-		borderTop.backgroundColor = grayDarkest;
-		
-		[cell addSubview:borderTop];
-	}
+	UIView *borderTop = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1, cell.frame.size.width, 1)];
+	borderTop.backgroundColor = grayDarkest;
+	
+	[cell addSubview:borderTop];
     
     return cell;
 }
@@ -139,35 +137,23 @@
 
 /* !CLLocalWeatherDelegate Methods
  * ---------------------------------------------*/
--(void)didFinishLoadingCurrentWeather
+-(void)didFinishLoadingWeather
 {
+	NSLog(@"%@", localWeather);
 	currentTempLabel.layer.opacity = 0;
-	currentTempLabel.text = [NSString stringWithFormat:@"%@˚", localWeather.currentTemp.stringValue];
-	[UIView animateWithDuration:1.0 animations:^{
-		currentTempLabel.layer.opacity = 1;
-	}];
-}
-
--(void)didFinishLoadingForecast
-{
 	forecastTableView.layer.opacity = 0;
-	tableBorderTop.layer.opacity = 0;
-	[forecastTableView reloadData];
-	
-	[UIView animateWithDuration:1.0 animations:^{
-		forecastTableView.layer.opacity = 1;
-		tableBorderTop.layer.opacity = 1;
-	}];
-}
-
--(void)didFinishLoadingLocation
-{
 	locationLabel.layer.opacity = 0;
+	tableBorderTop.layer.opacity = 0;
+	
+	[forecastTableView reloadData];
+	currentTempLabel.text = [NSString stringWithFormat:@"%@˚", localWeather.currentTemp.stringValue];
 	locationLabel.text = [NSString stringWithFormat:@"%@, %@", localWeather.city, localWeather.state];
 	
 	[UIView animateWithDuration:1.0 animations:^{
+		currentTempLabel.layer.opacity = 1;
+		forecastTableView.layer.opacity = 1;
+		tableBorderTop.layer.opacity = 1;
 		locationLabel.layer.opacity = 1;
 	}];
 }
-
 @end

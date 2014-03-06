@@ -27,6 +27,10 @@
 		self.queue = [[NSOperationQueue alloc] init];
 	}
 	
+	currentTempLoaded = FALSE;
+	locationLoaded = FALSE;
+	forecastLoaded = FALSE;
+	
 	return self;
 }
 
@@ -133,6 +137,14 @@
 	}];
 }
 
+-(void)checkWeatherFinishedLoading
+{
+	if (currentTempLoaded && locationLoaded && forecastLoaded)
+	{
+		[delegate didFinishLoadingWeather];
+	}
+}
+
 /* !Geocoding callbacks
  * ---------------------------------------------*/
 -(void)didFindPlacemark:(CLPlacemark *)placemark
@@ -143,7 +155,8 @@
 	self.city = [placeDict objectForKey:@"City"];
 	self.state = [placeDict objectForKey:@"State"];
 	
-	[delegate didFinishLoadingLocation];
+	locationLoaded = TRUE;
+	[self checkWeatherFinishedLoading];
 }
 
 -(void)didFailFindingPlacemarkWithError:(NSError *)error
@@ -166,7 +179,9 @@
 	int currentTemp = [CLLocalWeather fahrenheitTemperature:kelvinTemp.floatValue];
 	self.currentTemp = [NSNumber numberWithInt:currentTemp];
 	
-	[delegate didFinishLoadingCurrentWeather];
+	currentTempLoaded = TRUE;
+	
+	[self checkWeatherFinishedLoading];
 }
 
 -(void)receivedForecastData:(NSData *)data
@@ -201,7 +216,8 @@
 	
 	self.forecastDays = [NSArray arrayWithArray:forecastDays];
 	
-	[delegate didFinishLoadingForecast];
+	forecastLoaded = TRUE;
+	[self checkWeatherFinishedLoading];
 }
 
 -(void)emptyReply

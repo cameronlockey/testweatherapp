@@ -13,6 +13,11 @@
 @protocol CLLocalWeatherDelegate;
 
 @interface CLLocalWeather : NSObject
+{
+	BOOL currentTempLoaded;
+	BOOL locationLoaded;
+	BOOL forecastLoaded;
+}
 
 @property (strong, nonatomic) NSString			*city;
 @property (strong, nonatomic) NSString			*state;
@@ -31,6 +36,7 @@
 -(void)currentTemperatureForLocation:(CLLocationCoordinate2D)location;
 -(void)forecastForLocation:(CLLocationCoordinate2D)location numberOfDays:(int)days;
 -(void)cityStateForLocation:(CLLocation*)location;
+-(void)checkWeatherFinishedLoading;
 
 /* !Geocoding Callbacks
  * ---------------------------------------------*/
@@ -57,8 +63,6 @@
 
 @protocol CLLocalWeatherDelegate <NSObject>
 
--(void)didFinishLoadingCurrentWeather;
--(void)didFinishLoadingForecast;
--(void)didFinishLoadingLocation;
+-(void)didFinishLoadingWeather;
 
 @end
