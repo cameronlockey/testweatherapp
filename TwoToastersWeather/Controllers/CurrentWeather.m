@@ -15,7 +15,7 @@
 
 @implementation CurrentWeather
 
-@synthesize currentTempLabel, locationLabel, forecastTableView;
+@synthesize currentTempLabel, locationLabel, forecastTableView, tableBorderTop, lastLocation, locationMgr, localWeather;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,29 +28,17 @@
 
 - (void)viewDidLoad
 {
+	// Set Up Location Info
+	lastLocation = nil;
+	locationMgr = [[CLLocationManager alloc] init];
+	locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
+	locationMgr.delegate = self;
+	[locationMgr startUpdatingLocation];
+	
     [super viewDidLoad];
-	
-	/* ---------------------------------------------*/
-	// stub out some test data
-	/* ---------------------------------------------*/
-	NSDictionary *day1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Thursday"], @"weekday", [NSString stringWithFormat:@"60"], @"temp", nil];
-	NSDictionary *day2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Friday"], @"weekday", [NSString stringWithFormat:@"66"], @"temp", nil];
-	NSDictionary *day3 = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Saturday"], @"weekday", [NSString stringWithFormat:@"64"], @"temp", nil];
-	NSDictionary *day4 = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Sunday"], @"weekday", [NSString stringWithFormat:@"62"], @"temp", nil];
-	NSDictionary *day5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Monday"], @"weekday", [NSString stringWithFormat:@"68"], @"temp", nil];
-	forecastData = [NSArray arrayWithObjects: day1, day2, day3, day4, day5, nil];
-	currentTemp = [NSNumber numberWithInt:72];
-	
-	currentLocation = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Durham"], @"city", [NSString stringWithFormat:@"NC"], @"state", nil];
-	 /* ---------------------------------------------*/
-	 /* ---------------------------------------------*/
 	
 	// initialize iVars
 	grayDarkest = GRAY_DARKEST;
-	
-	// Drop in currentTemp data
-	currentTempLabel.text = [NSString stringWithFormat:@"%i˚", currentTemp.intValue];
-	locationLabel.text = [NSString stringWithFormat:@"%@, %@", [currentLocation objectForKey:@"city"], [currentLocation objectForKey:@"state"]];
 	
 	// Style UI views
 	[self.navigationController.navigationBar setTitleTextAttributes:@{
@@ -62,10 +50,20 @@
 	
 	
 	// Add a top border to define the edge of the scrollable tableView
-	UIView *tableBorderTop = [[UIView alloc] initWithFrame:CGRectMake(forecastTableView.frame.origin.x, forecastTableView.frame.origin.y-1, forecastTableView.frame.size.width, 1)];
+	tableBorderTop = [[UIView alloc] initWithFrame:CGRectMake(forecastTableView.frame.origin.x, forecastTableView.frame.origin.y-1, forecastTableView.frame.size.width, 1)];
 	tableBorderTop.backgroundColor = grayDarkest;
 	[self.view addSubview:tableBorderTop];
 	
+	// hide everything by default
+	currentTempLabel.layer.opacity = 0;
+	locationLabel.layer.opacity = 0;
+	forecastTableView.layer.opacity = 0;
+	tableBorderTop.layer.opacity = 0;
+	
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,7 +83,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [forecastData count];
+    return [localWeather.forecastDays count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,16 +92,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 	   
 	// get the current item
-	NSDictionary *forecastDay = [forecastData objectAtIndex:indexPath.row];
+	CLWeatherForecastDay *forecastDay = [localWeather.forecastDays objectAtIndex:indexPath.row];
 	
     UILabel *tempLabel = (UILabel*)[cell viewWithTag:1];
 	tempLabel.textColor = grayDarkest;
-	tempLabel.text = [NSString stringWithFormat:@"%@˚", [forecastDay objectForKey:@"temp"]];
+	tempLabel.text = [NSString stringWithFormat:@"%@˚",forecastDay.temperature.stringValue];
 	
 	
 	UILabel *dayLabel = (UILabel*)[cell viewWithTag:2];
 	dayLabel.textColor = grayDarkest;
-	dayLabel.text = [forecastDay objectForKey:@"weekday"];
+	dayLabel.text = forecastDay.weekday;
 	
 	if (indexPath.row > 0) {
 		UIView *borderTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 1)];
@@ -113,6 +111,63 @@
 	}
     
     return cell;
+}
+
+/* !Refresh Methods
+ * ---------------------------------------------*/
+-(void)updateWeatherForLocation:(CLLocation *)location
+{
+	// update the current weather and forecast data
+	localWeather = [CLLocalWeather weatherForLocation:location Delegate:self];
+}
+
+/* !CLLocationManagerDelegate Methods
+ * ---------------------------------------------*/
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+	if (lastLocation == nil) {
+		
+		lastLocation = locations.lastObject;
+		[self updateWeatherForLocation:lastLocation];
+	}
+	else
+	{
+		lastLocation = locations.lastObject;
+		[manager stopUpdatingLocation];
+	}
+}
+
+/* !CLLocalWeatherDelegate Methods
+ * ---------------------------------------------*/
+-(void)didFinishLoadingCurrentWeather
+{
+	currentTempLabel.layer.opacity = 0;
+	currentTempLabel.text = [NSString stringWithFormat:@"%@˚", localWeather.currentTemp.stringValue];
+	[UIView animateWithDuration:1.0 animations:^{
+		currentTempLabel.layer.opacity = 1;
+	}];
+}
+
+-(void)didFinishLoadingForecast
+{
+	forecastTableView.layer.opacity = 0;
+	tableBorderTop.layer.opacity = 0;
+	[forecastTableView reloadData];
+	
+	[UIView animateWithDuration:1.0 animations:^{
+		forecastTableView.layer.opacity = 1;
+		tableBorderTop.layer.opacity = 1;
+	}];
+}
+
+-(void)didFinishLoadingLocation
+{
+	locationLabel.layer.opacity = 0;
+	locationLabel.text = [NSString stringWithFormat:@"%@, %@", localWeather.city, localWeather.state];
+	
+	[UIView animateWithDuration:1.0 animations:^{
+		locationLabel.layer.opacity = 1;
+	}];
 }
 
 @end

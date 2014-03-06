@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E05B3DD18C7D0B100ED7491 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E05B3DC18C7D0B100ED7491 /* CoreLocation.framework */; };
+		7E05B3DF18C7D5C900ED7491 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E05B3DE18C7D5C900ED7491 /* AddressBookUI.framework */; };
+		7E05B3E318C7D64500ED7491 /* CLLocalWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3E218C7D64500ED7491 /* CLLocalWeather.m */; };
+		7E05B3FE18C7DA4A00ED7491 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3E618C7DA4A00ED7491 /* NSObject+SBJson.m */; };
+		7E05B3FF18C7DA4A00ED7491 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3E918C7DA4A00ED7491 /* SBJsonParser.m */; };
+		7E05B40018C7DA4A00ED7491 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3EB18C7DA4A00ED7491 /* SBJsonStreamParser.m */; };
+		7E05B40118C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3ED18C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.m */; };
+		7E05B40218C7DA4A00ED7491 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3EF18C7DA4A00ED7491 /* SBJsonStreamParserAdapter.m */; };
+		7E05B40318C7DA4A00ED7491 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3F118C7DA4A00ED7491 /* SBJsonStreamParserState.m */; };
+		7E05B40418C7DA4A00ED7491 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3F318C7DA4A00ED7491 /* SBJsonStreamWriter.m */; };
+		7E05B40518C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3F518C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.m */; };
+		7E05B40618C7DA4A00ED7491 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3F718C7DA4A00ED7491 /* SBJsonStreamWriterState.m */; };
+		7E05B40718C7DA4A00ED7491 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3F918C7DA4A00ED7491 /* SBJsonTokeniser.m */; };
+		7E05B40818C7DA4A00ED7491 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3FB18C7DA4A00ED7491 /* SBJsonUTF8Stream.m */; };
+		7E05B40918C7DA4A00ED7491 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3FD18C7DA4A00ED7491 /* SBJsonWriter.m */; };
+		7E05B40C18C7EFB000ED7491 /* CLWeatherForecastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B40B18C7EFB000ED7491 /* CLWeatherForecastDay.m */; };
 		7ED9904B18C76E8000E13FA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904A18C76E8000E13FA5 /* Foundation.framework */; };
 		7ED9904D18C76E8000E13FA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904C18C76E8000E13FA5 /* CoreGraphics.framework */; };
 		7ED9904F18C76E8000E13FA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904E18C76E8000E13FA5 /* UIKit.framework */; };
@@ -35,6 +51,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E05B3DC18C7D0B100ED7491 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7E05B3DE18C7D5C900ED7491 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		7E05B3E118C7D64500ED7491 /* CLLocalWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLLocalWeather.h; path = Models/CLLocalWeather.h; sourceTree = SOURCE_ROOT; };
+		7E05B3E218C7D64500ED7491 /* CLLocalWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLLocalWeather.m; path = Models/CLLocalWeather.m; sourceTree = SOURCE_ROOT; };
+		7E05B3E518C7DA4A00ED7491 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		7E05B3E618C7DA4A00ED7491 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		7E05B3E718C7DA4A00ED7491 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		7E05B3E818C7DA4A00ED7491 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		7E05B3E918C7DA4A00ED7491 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		7E05B3EA18C7DA4A00ED7491 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		7E05B3EB18C7DA4A00ED7491 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		7E05B3EC18C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		7E05B3ED18C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		7E05B3EE18C7DA4A00ED7491 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		7E05B3EF18C7DA4A00ED7491 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		7E05B3F018C7DA4A00ED7491 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		7E05B3F118C7DA4A00ED7491 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		7E05B3F218C7DA4A00ED7491 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		7E05B3F318C7DA4A00ED7491 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		7E05B3F418C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		7E05B3F518C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		7E05B3F618C7DA4A00ED7491 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		7E05B3F718C7DA4A00ED7491 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		7E05B3F818C7DA4A00ED7491 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		7E05B3F918C7DA4A00ED7491 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		7E05B3FA18C7DA4A00ED7491 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		7E05B3FB18C7DA4A00ED7491 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		7E05B3FC18C7DA4A00ED7491 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		7E05B3FD18C7DA4A00ED7491 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		7E05B40A18C7EFB000ED7491 /* CLWeatherForecastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLWeatherForecastDay.h; path = Models/CLWeatherForecastDay.h; sourceTree = SOURCE_ROOT; };
+		7E05B40B18C7EFB000ED7491 /* CLWeatherForecastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLWeatherForecastDay.m; path = Models/CLWeatherForecastDay.m; sourceTree = SOURCE_ROOT; };
 		7ED9904718C76E8000E13FA5 /* TwoToastersWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoToastersWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED9904A18C76E8000E13FA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7ED9904C18C76E8000E13FA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E05B3DF18C7D5C900ED7491 /* AddressBookUI.framework in Frameworks */,
+				7E05B3DD18C7D0B100ED7491 /* CoreLocation.framework in Frameworks */,
 				7ED9904D18C76E8000E13FA5 /* CoreGraphics.framework in Frameworks */,
 				7ED9904F18C76E8000E13FA5 /* UIKit.framework in Frameworks */,
 				7ED9904B18C76E8000E13FA5 /* Foundation.framework in Frameworks */,
@@ -82,6 +131,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E05B3E018C7D61E00ED7491 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E05B3E118C7D64500ED7491 /* CLLocalWeather.h */,
+				7E05B3E218C7D64500ED7491 /* CLLocalWeather.m */,
+				7E05B40A18C7EFB000ED7491 /* CLWeatherForecastDay.h */,
+				7E05B40B18C7EFB000ED7491 /* CLWeatherForecastDay.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7E05B3E418C7DA4A00ED7491 /* SBJSON */ = {
+			isa = PBXGroup;
+			children = (
+				7E05B3E518C7DA4A00ED7491 /* NSObject+SBJson.h */,
+				7E05B3E618C7DA4A00ED7491 /* NSObject+SBJson.m */,
+				7E05B3E718C7DA4A00ED7491 /* SBJson.h */,
+				7E05B3E818C7DA4A00ED7491 /* SBJsonParser.h */,
+				7E05B3E918C7DA4A00ED7491 /* SBJsonParser.m */,
+				7E05B3EA18C7DA4A00ED7491 /* SBJsonStreamParser.h */,
+				7E05B3EB18C7DA4A00ED7491 /* SBJsonStreamParser.m */,
+				7E05B3EC18C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.h */,
+				7E05B3ED18C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.m */,
+				7E05B3EE18C7DA4A00ED7491 /* SBJsonStreamParserAdapter.h */,
+				7E05B3EF18C7DA4A00ED7491 /* SBJsonStreamParserAdapter.m */,
+				7E05B3F018C7DA4A00ED7491 /* SBJsonStreamParserState.h */,
+				7E05B3F118C7DA4A00ED7491 /* SBJsonStreamParserState.m */,
+				7E05B3F218C7DA4A00ED7491 /* SBJsonStreamWriter.h */,
+				7E05B3F318C7DA4A00ED7491 /* SBJsonStreamWriter.m */,
+				7E05B3F418C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.h */,
+				7E05B3F518C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.m */,
+				7E05B3F618C7DA4A00ED7491 /* SBJsonStreamWriterState.h */,
+				7E05B3F718C7DA4A00ED7491 /* SBJsonStreamWriterState.m */,
+				7E05B3F818C7DA4A00ED7491 /* SBJsonTokeniser.h */,
+				7E05B3F918C7DA4A00ED7491 /* SBJsonTokeniser.m */,
+				7E05B3FA18C7DA4A00ED7491 /* SBJsonUTF8Stream.h */,
+				7E05B3FB18C7DA4A00ED7491 /* SBJsonUTF8Stream.m */,
+				7E05B3FC18C7DA4A00ED7491 /* SBJsonWriter.h */,
+				7E05B3FD18C7DA4A00ED7491 /* SBJsonWriter.m */,
+			);
+			path = SBJSON;
+			sourceTree = "<group>";
+		};
 		7ED9903E18C76E8000E13FA5 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +196,8 @@
 		7ED9904918C76E8000E13FA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E05B3DE18C7D5C900ED7491 /* AddressBookUI.framework */,
+				7E05B3DC18C7D0B100ED7491 /* CoreLocation.framework */,
 				7ED9904A18C76E8000E13FA5 /* Foundation.framework */,
 				7ED9904C18C76E8000E13FA5 /* CoreGraphics.framework */,
 				7ED9904E18C76E8000E13FA5 /* UIKit.framework */,
@@ -115,6 +209,7 @@
 		7ED9905018C76E8000E13FA5 /* TwoToastersWeather */ = {
 			isa = PBXGroup;
 			children = (
+				7E05B3E018C7D61E00ED7491 /* Models */,
 				7ED9905918C76E8000E13FA5 /* AppDelegate.h */,
 				7ED9905A18C76E8000E13FA5 /* AppDelegate.m */,
 				7ED9905C18C76E8000E13FA5 /* Main.storyboard */,
@@ -167,6 +262,7 @@
 		7ED9908318C7710200E13FA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E05B3E418C7DA4A00ED7491 /* SBJSON */,
 				7ED9908418C7712B00E13FA5 /* UIHelper.h */,
 				7ED9908518C7712B00E13FA5 /* UIHelper.m */,
 			);
@@ -270,10 +366,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E05B40118C7DA4A00ED7491 /* SBJsonStreamParserAccumulator.m in Sources */,
+				7E05B40C18C7EFB000ED7491 /* CLWeatherForecastDay.m in Sources */,
+				7E05B3E318C7D64500ED7491 /* CLLocalWeather.m in Sources */,
+				7E05B40818C7DA4A00ED7491 /* SBJsonUTF8Stream.m in Sources */,
 				7ED9905B18C76E8000E13FA5 /* AppDelegate.m in Sources */,
 				7ED9905718C76E8000E13FA5 /* main.m in Sources */,
 				7ED9908918C7830B00E13FA5 /* CurrentWeather.m in Sources */,
+				7E05B3FF18C7DA4A00ED7491 /* SBJsonParser.m in Sources */,
+				7E05B40418C7DA4A00ED7491 /* SBJsonStreamWriter.m in Sources */,
+				7E05B40018C7DA4A00ED7491 /* SBJsonStreamParser.m in Sources */,
+				7E05B40618C7DA4A00ED7491 /* SBJsonStreamWriterState.m in Sources */,
+				7E05B40218C7DA4A00ED7491 /* SBJsonStreamParserAdapter.m in Sources */,
+				7E05B40518C7DA4A00ED7491 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				7E05B40918C7DA4A00ED7491 /* SBJsonWriter.m in Sources */,
+				7E05B40318C7DA4A00ED7491 /* SBJsonStreamParserState.m in Sources */,
 				7ED9908618C7712B00E13FA5 /* UIHelper.m in Sources */,
+				7E05B3FE18C7DA4A00ED7491 /* NSObject+SBJson.m in Sources */,
+				7E05B40718C7DA4A00ED7491 /* SBJsonTokeniser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +592,7 @@
 				7ED9907B18C76E8000E13FA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7ED9907C18C76E8000E13FA5 /* Build configuration list for PBXNativeTarget "TwoToastersWeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +601,7 @@
 				7ED9907E18C76E8000E13FA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
