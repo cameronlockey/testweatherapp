@@ -23,6 +23,7 @@
 		7E05B40818C7DA4A00ED7491 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3FB18C7DA4A00ED7491 /* SBJsonUTF8Stream.m */; };
 		7E05B40918C7DA4A00ED7491 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B3FD18C7DA4A00ED7491 /* SBJsonWriter.m */; };
 		7E05B40C18C7EFB000ED7491 /* CLWeatherForecastDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E05B40B18C7EFB000ED7491 /* CLWeatherForecastDay.m */; };
+		7E53EBC718CA707600E66D11 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E53EBC618CA707600E66D11 /* MBProgressHUD.m */; };
 		7ED9904B18C76E8000E13FA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904A18C76E8000E13FA5 /* Foundation.framework */; };
 		7ED9904D18C76E8000E13FA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904C18C76E8000E13FA5 /* CoreGraphics.framework */; };
 		7ED9904F18C76E8000E13FA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED9904E18C76E8000E13FA5 /* UIKit.framework */; };
@@ -82,6 +83,8 @@
 		7E05B3FD18C7DA4A00ED7491 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		7E05B40A18C7EFB000ED7491 /* CLWeatherForecastDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLWeatherForecastDay.h; path = Models/CLWeatherForecastDay.h; sourceTree = SOURCE_ROOT; };
 		7E05B40B18C7EFB000ED7491 /* CLWeatherForecastDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLWeatherForecastDay.m; path = Models/CLWeatherForecastDay.m; sourceTree = SOURCE_ROOT; };
+		7E53EBC518CA707600E66D11 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7E53EBC618CA707600E66D11 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7ED9904718C76E8000E13FA5 /* TwoToastersWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoToastersWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED9904A18C76E8000E13FA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7ED9904C18C76E8000E13FA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,6 +177,15 @@
 			path = SBJSON;
 			sourceTree = "<group>";
 		};
+		7E53EBC418CA6F8C00E66D11 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7E53EBC518CA707600E66D11 /* MBProgressHUD.h */,
+				7E53EBC618CA707600E66D11 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		7ED9903E18C76E8000E13FA5 = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +274,7 @@
 		7ED9908318C7710200E13FA5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E53EBC418CA6F8C00E66D11 /* MBProgressHUD */,
 				7E05B3E418C7DA4A00ED7491 /* SBJSON */,
 				7ED9908418C7712B00E13FA5 /* UIHelper.h */,
 				7ED9908518C7712B00E13FA5 /* UIHelper.m */,
@@ -373,6 +386,7 @@
 				7ED9905B18C76E8000E13FA5 /* AppDelegate.m in Sources */,
 				7ED9905718C76E8000E13FA5 /* main.m in Sources */,
 				7ED9908918C7830B00E13FA5 /* CurrentWeather.m in Sources */,
+				7E53EBC718CA707600E66D11 /* MBProgressHUD.m in Sources */,
 				7E05B3FF18C7DA4A00ED7491 /* SBJsonParser.m in Sources */,
 				7E05B40418C7DA4A00ED7491 /* SBJsonStreamWriter.m in Sources */,
 				7E05B40018C7DA4A00ED7491 /* SBJsonStreamParser.m in Sources */,

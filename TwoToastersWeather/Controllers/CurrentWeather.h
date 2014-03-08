@@ -10,10 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "CLLocalWeather.h"
 #import "CLWeatherForecastDay.h"
+#import "MBProgressHUD.h"
 
 
-@interface CurrentWeather : UIViewController <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, CLLocalWeatherDelegate>
+@interface CurrentWeather : UIViewController <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, CLLocalWeatherDelegate, MBProgressHUDDelegate>
 {
+	MBProgressHUD *HUD;
 	UIColor *grayDarkest;
 }
 

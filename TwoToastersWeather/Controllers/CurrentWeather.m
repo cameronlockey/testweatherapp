@@ -111,21 +111,34 @@
     return cell;
 }
 
-/* !Refresh Methods
- * ---------------------------------------------*/
+#pragma mark -
+#pragma mark Refresh methods
 -(void)updateWeatherForLocation:(CLLocation *)location
 {
+	// The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
+	HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:HUD];
+	
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	HUD.labelText = @"Loading Local Weather";
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	
 	// update the current weather and forecast data
 	localWeather = [CLLocalWeather weatherForLocation:location Delegate:self];
 }
 
-/* !CLLocationManagerDelegate Methods
- * ---------------------------------------------*/
+#pragma mark -
+#pragma mark CLLocationManagerDelegate methods
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
 	if (lastLocation == nil) {
 		
 		lastLocation = locations.lastObject;
+		
 		[self updateWeatherForLocation:lastLocation];
 	}
 	else
@@ -135,11 +148,10 @@
 	}
 }
 
-/* !CLLocalWeatherDelegate Methods
- * ---------------------------------------------*/
+#pragma mark -
+#pragma mark CLLocalWeatherDelegate methods
 -(void)didFinishLoadingWeather
 {
-	NSLog(@"%@", localWeather);
 	currentTempLabel.layer.opacity = 0;
 	forecastTableView.layer.opacity = 0;
 	locationLabel.layer.opacity = 0;
@@ -149,11 +161,23 @@
 	currentTempLabel.text = [NSString stringWithFormat:@"%@˚", localWeather.currentTemp.stringValue];
 	locationLabel.text = [NSString stringWithFormat:@"%@, %@", localWeather.city, localWeather.state];
 	
+	[HUD hide:YES];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	
 	[UIView animateWithDuration:1.0 animations:^{
 		currentTempLabel.layer.opacity = 1;
 		forecastTableView.layer.opacity = 1;
 		tableBorderTop.layer.opacity = 1;
 		locationLabel.layer.opacity = 1;
 	}];
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 @end
